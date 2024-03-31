@@ -25,6 +25,10 @@ contract BWDAO {
         Admin[_addr] = true;
     }
 
+    function isDaoAdmin(address _address) public view returns(bool){
+        return Admin[_address];
+    }
+
     function addMember(address _member) external onlyAdmin onlyOwner{
         require(memberlisted[msg.sender] == false ,"He has been a member");
         memberlisted[_member] = true;
